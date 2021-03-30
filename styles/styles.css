@@ -108,6 +108,7 @@ img {
 .contacts .header-link {
   color: var(--main-text-color);
 }
+
 .header-link:hover,
 .footer-link:hover,
 .header-link:focus,
@@ -129,6 +130,21 @@ img {
 .contacts .icon {
   fill: currentColor;
   margin-right: 10px;
+}
+.current-menu-item {
+  color: var(--accent-color); 
+  position: relative;
+}
+.current-menu-item::after {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: #2196F3;
+  border-radius: 2px;
+
 }
 /* --logo-stilization-- */
 .logo-link {
@@ -271,7 +287,8 @@ img {
   background-image: url(../images/features/astronaut.png);
 }
 .features-item-title,
-.footer-social-title {
+.footer-social-title, 
+.work-about-item-title {
   margin-bottom: 10px;
   font-weight: 700;
   font-size: 14px;
@@ -287,10 +304,22 @@ img {
   padding-bottom: 94px;
 }
 .work-about-item {
+  position: relative;
   flex-basis: calc(
     (100% - (30px * var(--one-item) * 3)) / (var(--one-item) * 3)
   );
   margin-left: 30px;
+}
+.work-about-item-title {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  margin: 0;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  text-align: center;
+  color: var(--white-color);
+  background-image: linear-gradient(rgba(47, 48, 58, 0.8), rgba(47, 48, 58, 0.8));
 }
 .team {
   padding-bottom: 94px;
@@ -367,30 +396,56 @@ img {
 .clients-link:focus .icon {
   fill: var(--accent-color);
 }
-/* .client-1 .icon {
-  width: 45px;
-  height: 50px;
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); */
+  background-color: rgba(0, 0, 0, 0.2);
 }
-.client-2 .icon {
-  width: 40px;
-  height: 52px;
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
 }
-.client-3 .icon {
-  width: 41px;
-  height: 43px;
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 528px;
+  min-height: 581px;  
+  background-color: var(--white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;  
 }
-.client-4 .icon {
-  width: 80px;
-  height: 42px;
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+  /* background-color: lawngreen;  */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 }
-.client-5 .icon {
-  width: 59px;
-  height: 47px;
+.close-btn:hover {
+  cursor: pointer;
 }
-.client-6 .icon {
-  width: 89px;
-  height: 46px;
-} */
+.close-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  fill: #000;
+}
 /* Portfolio.html */
 .portfolio {
   padding-bottom: 94px;
@@ -464,6 +519,5 @@ img {
   display: block;
   text-decoration: none;
   color: var(--main-text-color);
-  background-color: var(--white-color);
-  
+  background-color: var(--white-color); 
 }
